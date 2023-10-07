@@ -3,12 +3,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigator from './src/navigations/BottomTabNavigation'
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, Button} from 'react-native'
 import { ClerkProvider, SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
-import Constants from "expo-constants"
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import SignInWithOAuth from './components/signInWithOauth';
 import * as SecureStore from "expo-secure-store";
-
-const CLERK_PUBLISHABLE_KEY='pk_test_cG9zc2libGUtaG9yc2UtNTAuY2xlcmsuYWNjb3VudHMuZGV2JA'
+import {REACT_APP_CLERK_PUBLISHABLE_KEY} from '@env'
 
 const tokenCache = {
   async getToken(key: string) {
@@ -33,7 +31,7 @@ export default function App(): JSX.Element {
     <GestureHandlerRootView style={{flex:1}}>
       <NavigationContainer>
         <SafeAreaView style={{flex:1, marginTop: StatusBar.currentHeight}}>
-          <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
+          <ClerkProvider publishableKey={REACT_APP_CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
           <SignedIn>
             <BottomTabNavigator />
           </SignedIn>
