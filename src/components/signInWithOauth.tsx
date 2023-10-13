@@ -2,7 +2,7 @@ import React from "react";
 import * as WebBrowser from "expo-web-browser";
 import { Button } from "react-native";
 import { useOAuth } from "@clerk/clerk-expo";
-import { useWarmUpBrowser } from "../hooks/warmUpBrowsers";
+import { useWarmUpBrowser } from "../../hooks/warmUpBrowsers";
  
 WebBrowser.maybeCompleteAuthSession();
  
@@ -16,17 +16,17 @@ const SignInWithOAuth = () => {
   const onPress = React.useCallback(async () => {
     try {
       const { createdSessionId, signIn, signUp, setActive } =
-        await startOAuthFlow();
+        await startOAuthFlow?.() ?? {};
  
       if (createdSessionId) {
-        setActive({ session: createdSessionId });
+        setActive?.({ session: createdSessionId });
       } else {
         // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
       console.error("OAuth error", err);
     }
-  }, []);
+  }, [startOAuthFlow]);
  
   return (
     <Button

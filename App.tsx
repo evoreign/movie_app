@@ -1,10 +1,11 @@
+import 'react-native-gesture-handler';
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigator from './src/navigations/BottomTabNavigation'
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, Button} from 'react-native'
 import { ClerkProvider, SignedIn, SignedOut, useAuth } from "@clerk/clerk-expo";
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import SignInWithOAuth from './components/signInWithOauth';
+import SignInWithOAuth from './src/components/signInWithOauth'
 import * as SecureStore from "expo-secure-store";
 import {REACT_APP_CLERK_PUBLISHABLE_KEY} from '@env'
 
