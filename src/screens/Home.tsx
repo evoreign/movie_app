@@ -2,7 +2,8 @@ import React from 'react'
 import { ScrollView, View, StatusBar, StyleSheet } from 'react-native'
 import type { MovieListProps } from '../types/app'
 import MovieList from '../components/movies/MovieList'
-
+import { useNavigation } from '@react-navigation/native'
+import MovieDetail from './MovieDetail'
 const movieLists: MovieListProps[] = [
   {
     title: 'Now Playing in Theater',
@@ -27,6 +28,8 @@ const movieLists: MovieListProps[] = [
 ]
 
 const Home = (): JSX.Element => {
+  const navigation = useNavigation()
+  
   return (
     <ScrollView>
       <View style={styles.container}>

@@ -71,6 +71,10 @@ const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
 }
 
 const styles = StyleSheet.create({
+  movieList: {
+    paddingLeft: 4,
+    marginTop: 8,
+  },
   header: {
     marginLeft: 6,
     display: 'flex',

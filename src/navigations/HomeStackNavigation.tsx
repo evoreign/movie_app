@@ -7,6 +7,8 @@ const Stack = createStackNavigator();
 const HomeStackNavigation = (): JSX.Element => (
   <Stack.Navigator>
     <Stack.Screen name="Home" component={Home} />
-    <Stack.Screen name="MovieDetails" component={MovieDetail} />
+    <Stack.Screen name="MovieDetail" component={MovieDetail} />
   </Stack.Navigator>
 );
+
+export default HomeStackNavigation;
